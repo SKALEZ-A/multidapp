@@ -1,0 +1,41 @@
+// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: SEE LICENSE IN LICENSE
+pragma solidity ^0.8.0;
+
+
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol"; 
+
+abstract contract voting is IERC20, ERC20 {
+    // imports 
+     
+    // variables
+    constructor () { 
+
+    }
+
+    //mappings
+    mapping(address => uint256) public votes;
+    mapping(address => address) public hasVoted;
+    // functions
+    function vote(address candidate) public returns (bool success) {
+        require(candidate != address(0), "Invalid candidate address");
+        require(balanceOf(msg.sender) >= 1, "Insufficient balance");
+        require(candidate != msg.sender, "You cannot vote for yourself");
+        require(hasVoted[msg.sender] != candidate, "You have already voted for this candidate");
+
+        votes[candidate] += 1;
+        hasVoted[msg.sender] = candidate;
+        _balances[msg.sender] -= 1;
+        emit Transfer(msg.sender, address(0), 1);
+        return true;
+    }
+
+    function getVoteCount(address candidate) public view returns (uint256 count) {
+        require(candidate != address(0), "Invalid candidate address");
+        return votes[candidate];
+    }
+
+
+
+}

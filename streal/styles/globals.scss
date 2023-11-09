@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;600&display=swap");
+
+@import "./components/wrapper";
+@import "./components/Navbar/navbar";
+@import "./components/PrimaryButton/primary-button";
+@import "./components/Stake/stake";
+@import "./components/DashboardPage/dashboard-page";
+@import "./components//Markets/markets";
+@import "./components/Governance/governance";
+@import "./mixins/mixins";
+@import "./modules/variables";
+@import "./components/modals";
+@import "./components/MainPagesWrapper/main-page-layout";
+
+//To remove default margins
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+
+  a {
+    margin: 0;
+    color: $white;
+    text-decoration: none;
+  }
+
+  .dark--mode--bg {
+    background: $blue !important;
+  }
+
+  .inner--page--bg {
+    background: $light-background !important;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Poppins:wght@400;500;600&family=Rubik+Iso&display=swap");
+body {
+  margin: 0;
+  // font-family: "Manrope", sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    margin: 0;
+  }
+
+  .app {
+    overflow: hidden;
+    padding: 0 36px;
+
+    .inner--page {
+      display: flex;
+      flex-direction: column;
+      gap: 84px;
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  body {
+    .app {
+      padding: 0 80px;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  body {
+    .app {
+      padding: 0 64px;
+    }
+  }
+}
+
+@media screen and (max-width: 912px) {
+  body {
+    .app {
+      padding: 0 36px;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  body {
+    .app {
+      padding: 0 24px;
+    }
+  }
+}
+
+.transparent-bg-page {
+  margin-top: 20px;
+}
+
+.transparent-bg {
+}

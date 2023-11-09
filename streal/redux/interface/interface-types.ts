@@ -1,0 +1,2 @@
+export const TOGGLE_MODE = "TOGGLE_MODE";
+export const TOGGLE_TESTNET = "TOGGLE_TESTNET";

@@ -1,0 +1,404 @@
+@import "../../modules/variables";
+
+@mixin borrow-supplies-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  .sec-col {
+    box-shadow: $box-shadow-sm;
+    border: $border;
+    border-radius: 4px;
+    border: 1px $light-gray solid;
+    width: 100%;
+    .sec-title1 {
+      padding: 16px 24px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .sec-title2 {
+      font-size: 14px;
+      padding: 22px 24px;
+      color: $grey500;
+    }
+  }
+  .main-col {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    .column-cont {
+      padding: 0 16px;
+      .column-title {
+        margin-bottom: 16px;
+        .title {
+          font-size: 18px;
+          font-weight: 600;
+        }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+      }
+      .column-info-box {
+        padding: 8px 12px;
+        margin-bottom: 32px;
+        background-color: $sky-blue;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12px;
+      }
+    }
+
+    .header {
+      color: $grey500;
+      display: flex;
+      font-size: 12px;
+
+      > div {
+        min-width: 15%;
+        text-align: center;
+      }
+      .apy-header {
+        width: 10%;
+      }
+      .collateral-header {
+        width: 20%;
+      }
+    }
+    .info-prompt {
+    }
+    .table {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.dashboard {
+  .dashboard-dashboard {
+    .mobile-title {
+      font-size: 21px;
+
+      color: $grey;
+      font-weight: 600;
+      margin-bottom: 4px;
+      @media screen and (min-width: $md) {
+        display: none;
+      }
+    }
+    .dashboard-heading {
+      img {
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+      }
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+
+      justify-content: space-between;
+      width: 250px;
+      color: white;
+      font-weight: 600;
+      position: relative;
+      @media screen and (min-width: $md) {
+        font-size: 32px;
+        width: 430px;
+      }
+      .dashboard-info {
+        display: flex;
+        align-items: center;
+        .dashboard-info-mrkt {
+          justify-self: flex-start;
+          .mrkt-title {
+            display: none;
+            @media screen and (min-width: $md) {
+              display: inline;
+            }
+          }
+        }
+      }
+      .options-btn {
+        all: unset;
+        margin-left: 20px;
+        transition-duration: $btn-anim-dur;
+        border-radius: 5px;
+        padding: 2px;
+        font-size: $text-sm;
+        cursor: pointer;
+        :hover {
+          opacity: 0.5;
+        }
+      }
+    }
+    .dashboard-apis {
+      display: flex;
+      margin-top: 10px;
+
+      @media screen and (min-width: $sm) {
+        justify-content: initial;
+      }
+      .api-items {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        color: $grey;
+        gap: 12px;
+        margin-right: 40px;
+        @media screen and (min-width: $sm) {
+          margin-right: 40px;
+          font-size: $text-sm;
+        }
+        img {
+          height: 20px;
+          width: 20px;
+          padding: 10px;
+          border: $border;
+          background-color: $alt-btn-background;
+          border-radius: 12px;
+          display: none;
+          @media screen and (min-width: $md) {
+            display: block;
+          }
+        }
+
+        .api-info-cont {
+          display: flex;
+          flex-direction: column;
+          font-size: $text-xs;
+
+          height: 40px;
+          justify-content: space-between;
+          box-sizing: border-box;
+          margin-left: 5px;
+          span {
+          }
+          align-items: flex-start;
+          @media screen and (min-width: $sm) {
+            font-size: $text-sm;
+          }
+          .api-info {
+            height: 1px;
+            background: $grey;
+            width: 30px;
+            margin-left: 1px;
+          }
+        }
+      }
+    }
+    .dashboard-modal-anim-cont {
+      position: absolute;
+      z-index: 40;
+      top: 50px;
+      left: 0%;
+      @media screen and (min-width: $md) {
+        left: 65%;
+      }
+      .dashboard-modal {
+        display: flex;
+        flex-direction: column;
+
+        background: white;
+        width: fit-content;
+        box-shadow: $box-shadow;
+        font-size: $text-md;
+        color: black;
+        border-radius: 5px;
+
+        .dashboard-modal-title {
+          padding: 12px 16px;
+          font-size: $text-sm;
+          font-weight: 600;
+          color: $grey;
+        }
+        button {
+          all: unset;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          padding: 12px 16px;
+          width: 238px;
+          font-weight: 500;
+          transition-duration: $btn-anim-dur;
+          &:hover {
+            background-color: rgba($color: $grey, $alpha: 0.3);
+          }
+          &.selected-btn {
+            background-color: rgba($color: $grey, $alpha: 0.5);
+          }
+        }
+        img {
+          margin-right: 10px;
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  .dashboard-table {
+    height: 100%;
+    display: none;
+    justify-items: center;
+    justify-content: center;
+
+    align-items: center;
+    .prompt-cont {
+      text-align: center;
+      .main-prompt {
+        font-size: 21px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: $black;
+        &.dark-mode {
+          color: $white;
+        }
+      }
+      .sec-prompt {
+        font-size: $text-sm;
+        color: $grey500;
+        &.dark-mode {
+          color: $grey;
+        }
+        @media screen and (min-width: $sm) {
+          font-size: $text-md;
+        }
+      }
+      button {
+        margin-top: 14px;
+      }
+    }
+  }
+}
+
+.dashboard-table-post-connection {
+  .header-buttons {
+    width: 360px;
+
+    display: flex;
+    justify-content: space-between;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: $grey;
+    padding: 3px;
+    @media screen and (min-width: 1280px) {
+      display: none;
+    }
+    button {
+      all: unset;
+      cursor: pointer;
+      text-align: center;
+      font-size: $text-sm;
+      padding: 6px 20px;
+      border-radius: 4px;
+      width: fit-content;
+      width: 49%;
+      font-weight: 600;
+      &.select-btn {
+        background: white;
+      }
+      &.unselect-btn {
+      }
+
+      .selected {
+        background: $gradient-bg;
+        color: $linear-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .unselected {
+        color: $black;
+      }
+    }
+  }
+  display: block;
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  }
+
+  height: 100%;
+
+  width: 100%;
+  gap: 16px;
+
+  justify-content: space-between;
+  .borrows-main-col {
+    &.hide-col {
+      display: none;
+      @media screen and (min-width: $xl) {
+        display: flex;
+      }
+    }
+    @include borrow-supplies-col();
+  }
+  .supplies-main-col {
+    &.hide-col {
+      display: none;
+      @media screen and (min-width: $xl) {
+        display: flex;
+      }
+    }
+    @include borrow-supplies-col();
+  }
+}
+
+.dashboard-table-post-connection-item {
+  display: flex;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  height: 71px;
+
+  padding: 0 16px;
+
+  border-top: 1px $light-gray solid;
+  border-bottom: 1px $light-gray solid;
+  justify-content: center;
+  > div {
+    width: 15%;
+    color: $black;
+    text-align: center;
+    &.center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .button-cont {
+    width: 40%;
+    display: flex;
+
+    align-items: center;
+    justify-content: right;
+    gap: 6px;
+  }
+  .primary-buttons {
+    line-height: 1.5rem;
+    all: unset;
+
+    font-weight: 500;
+    padding: 6px 12px;
+    background-color: $white;
+    border: 1px $light-gray solid;
+    cursor: pointer;
+    border-radius: 4px;
+    &:disabled {
+      color: $grey;
+    }
+  }
+  .title-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  .apy-data {
+  }
+  img {
+    width: 32px;
+    margin-right: 12px;
+    height: 32px;
+  }
+}

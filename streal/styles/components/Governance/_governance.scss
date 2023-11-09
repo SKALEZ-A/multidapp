@@ -1,0 +1,316 @@
+@import "../../modules/variables";
+
+@mixin governance-executed-box($color) {
+  border: 1px $color solid;
+  padding: 0px;
+  padding-right: 6px;
+  font-size: $text-xs;
+  gap: -2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $color;
+  border-radius: 4px;
+  height: fit-content;
+}
+
+@mixin quorum-differential {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  &.dark-mode {
+    color: white;
+  }
+}
+
+@mixin percentageBox {
+  border-radius: $btn-rad;
+  background-color: $light-gray;
+  .percentage {
+    background-color: $green;
+    height: 8px;
+    border-radius: $btn-rad;
+  }
+}
+
+@mixin percentage-info {
+  .info {
+    display: flex;
+    justify-content: space-between;
+    .info-number {
+      font-weight: 500;
+      margin-left: 5px;
+    }
+    .percent-info {
+      font-size: $text-sm;
+    }
+  }
+}
+
+.governance-dashboard {
+  .main-cont {
+    .main-header {
+      font-size: 32px;
+      color: white;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .info {
+      color: $grey;
+      font-size: $text-sm;
+      width: 100%;
+      max-width: 804.45px;
+      letter-spacing: 0.15px;
+      line-height: 20px;
+      .documentation-link {
+        margin-left: 3px;
+        border-bottom: 1px $grey solid;
+        color: $grey;
+      }
+    }
+    .link-cont {
+      margin-top: 10px;
+      display: flex;
+      gap: 20px;
+
+      button {
+        all: unset;
+        padding: 3px;
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        color: white;
+
+        font-weight: 700;
+        font-size: $text-xs;
+        border: $border;
+        background-color: $alt-btn-background;
+        text-transform: uppercase;
+        &:hover {
+          background-color: $black;
+          transition-duration: $btn-anim-dur;
+        }
+      }
+    }
+  }
+}
+
+.governance-table {
+  width: 100%;
+  justify-self: start;
+  display: flex;
+  height: 100%;
+
+  justify-content: space-between;
+  align-content: space-between;
+  flex-direction: column;
+  padding: 5px;
+  position: relative;
+  z-index: 0;
+  height: 100%;
+  box-sizing: border-box;
+  @media screen and (min-width: $xl) {
+    flex-direction: row;
+  }
+
+  .select-view {
+    display: flex;
+
+    top: 0px;
+    padding: 3px;
+    left: 0;
+    justify-content: space-between;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: $grey;
+    width: 100%;
+    @media screen and (min-width: $sm) {
+      width: 360px;
+    }
+    @media screen and (min-width: $xl) {
+      display: none;
+    }
+
+    button {
+      all: unset;
+      cursor: pointer;
+      text-align: center;
+      font-size: $text-sm;
+      padding: 6px 20px;
+      border-radius: 4px;
+      width: 49%;
+      font-weight: 600;
+      &.select-btn {
+        background: white;
+      }
+      &.unselect-btn {
+      }
+
+      .selected {
+        background: $gradient-bg;
+        color: $linear-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .unselected {
+        color: $black;
+      }
+    }
+  }
+
+  .info-proposal {
+    width: 100%;
+    border: 2px $primary-gray solid;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 30px $primary-gray;
+    border-radius: 4px;
+    &.laptop-view {
+      display: none;
+      @media screen and (min-width: $xl) {
+        display: block;
+        margin-right: 3px;
+      }
+    }
+    .main-cont {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      @media screen and (min-width: $xl) {
+        width: 98%;
+      }
+      .proposal {
+        width: 100%;
+        border-bottom: 1px $white solid;
+        display: flex;
+        padding: 32px 24px;
+        box-sizing: border-box;
+        flex-direction: column;
+        &.dark-mode {
+          color: white;
+          border-bottom: $border;
+        }
+        @media screen and (min-width: $md) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        gap: 20px;
+        .title-cont {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          .title {
+            font-weight: 700;
+            font-size: $text-lg;
+            line-height: 160%;
+          }
+          .title-info {
+            display: flex;
+            gap: 12px;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            line-height: 160%;
+            &.dark-mode {
+              color: $grey;
+            }
+            .executed {
+              @include governance-executed-box("");
+              color: $green;
+              border: 1px $green solid;
+            }
+            .failed {
+              @include governance-executed-box("green");
+              color: $red;
+              border: 1px $red solid;
+            }
+            .date {
+              font-size: $text-xs;
+            }
+            .quorum {
+              font-size: $text-xs;
+              @include quorum-differential();
+            }
+            .differential {
+              font-size: $text-xs;
+              @include quorum-differential();
+            }
+          }
+        }
+
+        .voting-cont {
+          gap: 10px;
+          display: flex;
+          flex-direction: column;
+          @media screen and (min-width: $md) {
+            width: 30%;
+          }
+          .yae-cont {
+            @include percentage-info();
+            .yae-percent {
+              @include percentageBox();
+            }
+          }
+          .nay-cont {
+            @include percentage-info();
+            .nay-percent {
+              @include percentageBox();
+              .percentage {
+                background-color: $red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.governance-input-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 47vh;
+  padding: 20px;
+  color: $black;
+  border-radius: 10px;
+  background-color: white;
+  &.dark-mode {
+    background-color: transparent;
+    color: white;
+  }
+  &.laptop-view {
+    display: none;
+
+    @media screen and (min-width: $xl) {
+      display: flex;
+      border: 2px $primary-gray solid;
+      box-sizing: border-box;
+      box-shadow: 10px 10px 30px $primary-gray;
+      border-radius: 4px;
+    }
+  }
+  .title {
+    font-weight: 600;
+    font-size: $text-2xl;
+  }
+  button {
+    color: white;
+    cursor: pointer;
+  }
+  .title-prompt {
+    color: $grey;
+    font-size: $text-sm;
+  }
+}
+
+.tab-mobile-cont {
+  @media screen and (min-width: $xl) {
+    display: none;
+  }
+}

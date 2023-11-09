@@ -1,0 +1,10 @@
+@mixin governance-executed-box($color) {
+  border: 1px $color solid;
+  padding: 8px;
+  font-size: $text-sm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: $color;
+}

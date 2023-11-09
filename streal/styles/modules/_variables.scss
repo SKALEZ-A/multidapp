@@ -1,0 +1,60 @@
+$white: #f1f1f3;
+$linear-gradient-border: linear-gradient(#06091c 0 0) padding-box,
+  linear-gradient(89.97deg, #ae67fa 1.84%, #81afdd 102.67%) border-box;
+$primary-purple: #ae67fa;
+$primary-blue: #81afdd;
+$gradient-bg: linear-gradient(89.97deg, #ae67fa 1.84%, #81afdd 102.67%)
+  border-box;
+$deep-blue: #2b2d3c;
+$blue: #1b2030fa;
+$grey500: #62677b;
+$grey: #8e92a3;
+$black: #303549;
+$light-gray: #eaebef;
+$linear-gradient: linear-gradient(99.97deg, #81afdd 39.84%, #ae67fa 62.67%);
+$border: 1px solid rgba(235, 235, 239, 0.08);
+$light-border: 1px solid #eaebef;
+$light-background: rgb(41, 46, 65);
+$primary-gray: rgba(0, 0, 0, 0.056);
+$alt-btn-background: #383d51;
+$red: rgb(229, 115, 115);
+$green: rgb(102, 187, 106);
+$sky-blue: #e5effb;
+
+//Media Queries
+$sm: 640px;
+$md: 768px;
+$xmd: 960px;
+$lg: 1024px;
+$xl: 1280px;
+
+//Padding for Buttons
+$btn-pad: 10px;
+
+//Border-Radius for Buttons
+$btn-rad: 10px;
+
+//Animation Transition Duration
+$anim-dur: 350ms;
+
+//Button Transition Duration
+$btn-anim-dur: 200ms;
+
+//Font-Sizes
+$text-xs: 12px;
+$text-sm: 14px;
+$text-md: 16px;
+$text-lg: 18px;
+$text-xl: 20px;
+$text-2xl: 24px;
+$text-3xl: 30px;
+$text-4xl: 36px;
+
+//Input
+$input-pad: $btn-pad;
+$input-rad: $btn-rad;
+
+//Box Shadow
+$box-shadow: 1px 1px 40px #6e6e6e;
+
+$box-shadow-sm: rgba(0, 0, 0, 0.05) 2px 2px 1px, rgba(0, 0, 0, 0.25) 0px 0px;
